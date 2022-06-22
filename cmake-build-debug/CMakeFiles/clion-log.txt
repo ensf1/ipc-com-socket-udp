@@ -1,4 +1,0 @@
-C:\Users\Wind\AppData\Local\JetBrains\CLion2022.1\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=/cygdrive/c/Program Files/JetBrains/CLion 2022.1/bin/ninja/cygwin/ninja.exe" -G Ninja -S /cygdrive/c/Users/Wind/CLionProjects/ipc-com-socket-udp -B /cygdrive/c/Users/Wind/CLionProjects/ipc-com-socket-udp/cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: /cygdrive/c/Users/Wind/CLionProjects/ipc-com-socket-udp/cmake-build-debug
