@@ -28,10 +28,12 @@ int main(int argc, char **argsv) {
     long clients = strtol(argsv[2], &end_of_number, 10);
     long interaction_type = strtol(argsv[3], &end_of_number, 10);
     char long_string[64];
+    char int_string[32];
     char interval[129] = "0-";
-    printf("%ld", portions);
-    printf("%ld", clients);
-    printf("%ld\n", interaction_type);
+    long portion;
+//    printf("%ld", portions);
+//    printf("%ld", clients);
+//    printf("%ld\n", interaction_type);
     printf("server pid %d\n", getpid());
 
     socket_number = new_socket_number();
@@ -46,8 +48,8 @@ int main(int argc, char **argsv) {
     printf("%s\n", message.text);
 
     if (interaction_type == 1) {
-        long portion = (long) ceil(portions / clients);
-        printf("portion: %ld\n", portion);
+        portion = (long) ceil(portions / clients);
+//        printf("portion: %ld\n", portion);
         long end = 0;
         while (end + portion < portions) {
             end = end + portion;
@@ -56,25 +58,31 @@ int main(int argc, char **argsv) {
             printf("interval sent: %s\n",interval);
             send_message(interval, socket_number, message.origin);
             snprintf(interval, 64, "%ld-", end);
-            printf("next interval: %s\n",interval);
+//            printf("next interval: %s\n",interval);
             message = receive_message(socket_number);
             printf("%s\n", message.text);
             result += strtod(message.text, &end_of_number);
             printf("result while: %f\n",result);
         }
         snprintf(long_string, 64, "%ld", portions);
-        printf("long_string %s\n", long_string);
+//        printf("long_string %s\n", long_string);
         strcat(interval, long_string);
-        printf("end: %ld:\n", end);
-        printf("portions: %ld:\n", portions);
-        printf("interval fim: %s\n", interval);
+//        printf("end: %ld:\n", end);
+//        printf("portions: %ld:\n", portions);
+//        printf("interval fim: %s\n", interval);
         send_message(interval, socket_number, message.origin);
         message = receive_message(socket_number);
-        printf("%s\n", message.text);
         result += strtod(message.text, &end_of_number);
     }
     else if(interaction_type == 2){
-
+        for(int i=0;i<portions;i++){
+            snprintf(int_string, 32, "%d", i);
+            send_message(int_string, socket_number, message.origin);
+            message = receive_message(socket_number);
+            printf("partial result %s\n", message.text);
+            result += strtod(message.text, &end_of_number);
+            printf("result while %f\t sum %f\n",result,strtod(message.text, &end_of_number));
+        }
     }
     send_message("shutdown", socket_number, message.origin);
 

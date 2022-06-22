@@ -67,6 +67,18 @@ double pi_interval_result(const long start_inclusive, const long end_exclusive) 
     return result;
 }
 
+double unsigned_pi_iteration_result(long number) {
+    return 1.0 / ((2 * (double) number) + 1);
+}
+
 double pi_iteration_result(long number) {
-    return (pow(-1, (double) number) / ((2 * (double) number) + 1));
+    if (number % 2 == 0) {
+        printf("%ld é par\n",number);
+        return unsigned_pi_iteration_result(number);
+    }
+    else{
+        printf("%ld é ímpar\n",number);
+        return -unsigned_pi_iteration_result(number);
+    }
+
 }

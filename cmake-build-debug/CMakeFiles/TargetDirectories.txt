@@ -1,0 +1,5 @@
+/cygdrive/c/Users/Wind/CLionProjects/ipc-com-socket-udp/cmake-build-debug/CMakeFiles/networking.dir
+/cygdrive/c/Users/Wind/CLionProjects/ipc-com-socket-udp/cmake-build-debug/CMakeFiles/server.dir
+/cygdrive/c/Users/Wind/CLionProjects/ipc-com-socket-udp/cmake-build-debug/CMakeFiles/client.dir
+/cygdrive/c/Users/Wind/CLionProjects/ipc-com-socket-udp/cmake-build-debug/CMakeFiles/edit_cache.dir
+/cygdrive/c/Users/Wind/CLionProjects/ipc-com-socket-udp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
